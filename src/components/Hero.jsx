@@ -1,66 +1,80 @@
 "use client";
-
-import Image from "next/image";
-// Use React Icons instead of remixicon-react
-import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
+import React from "react";
+import { motion } from "framer-motion";
+import { HERO_CONTENT } from "@/gems/constants";
 
 const Hero = () => {
+  const container = (delay) => ({
+    hidden: { x: -100, opacity: 0 },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: { duration: 0.5, delay: delay }, // Fixed typo in "transition"
+    },
+  });
+
   return (
-    <div className="h-screen grid place-items-center">
-      <div>
-        <div className="flex flex-col items-center justify-center gap-3 font-light capitalize">
-          <div className="relative flex items-center justify-center">
-            {/* Correctly using the Next.js Image component */}
-            <Image
-              src="/person1.png" // Replace with the correct image file path
-              alt="A descriptive text about the person" // Ensure meaningful alt text
-              width={400} // Adjust width
-              height={400} // Adjust height
-              priority={true} // Ensures the image is optimized for loading
-              className="h-auto w-[150px]"
+    <div className="-mt-10">
+      <div className="flex flex-wrap justify-center">
+        <div className="w-full">
+          <div className="flex text-white flex-col items-center">
+            {/* Animated Heading */}
+            <motion.h1
+              variants={container(0.5)}
+              initial="hidden"
+              animate="visible"
+              className="pb-5 font-thin tracking-tight text-5xl xL:text-6xl whitespace-nowrap"
+            >
+              Daniel Sunday
+            </motion.h1>
+
+            {/* Animated Profile Image */}
+            <motion.img
+              src="/person1.png"
+              alt="person"
+              width="150"
+              height="200"
+              className="z-10 mx-2"
+              initial={{ x: -100, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 2, ease: "easeOut" }}
             />
-            <span className="absolute text-3xl font-semibold text-white">
-              Hi
-            </span>
+
+            {/* Role Description */}
+            <motion.span
+              variants={container(1)}
+              initial="hidden"
+              animate="visible"
+              className="mt-5 bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-3xl tracking-tight text-transparent whitespace-nowrap"
+            >
+              Frontend Web Developer
+            </motion.span>
+
+            {/* About Text with Jumping Animation */}
+            <motion.p
+              variants={container(2)}
+              initial="hidden"
+              animate="visible"
+              className="border-b border-neutral-900 mt-4 text-base xl:text-xl font-bold text-neutral-400 text-center max-w-lg"
+            >
+              {HERO_CONTENT}
+            </motion.p>
+
+            {/* Download CV Button */}
+            <motion.a
+              variants={container(3)}
+              initial="hidden"
+              animate="visible"
+              href="/daniel-cv.pdf"
+              download
+              className="mt-5 px-6 py-2 rounded-lg text-white bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 transition duration-300 hover:scale-105"
+            >
+              Download CV
+            </motion.a>
           </div>
-          <h1 className="text-center text-3xl font-bold tracking-wider text-gray-500">
-            My Name Is DNeRo
-          </h1>
-          <p className="text-lg tracking-wider text-gray-700">
-            I like Coding 👩‍💻
-          </p>
         </div>
-        <div className="flex justify-center gap-x-10 mt-7 text-3xl text-yellow-600">
-          {/* Social Icons */}
-          <a
-            href="#"
-            aria-label="Instagram"
-            className="0 hover:text-purple-800 transition-colors"
-          >
-            <FaInstagram size={24} />
-          </a>
-          <a
-            href="#"
-            aria-label="Twitter"
-            className=" hover:text-sky-700 transition-colors"
-          >
-            <FaTwitter size={24} />
-          </a>
-          <a
-            href="#"
-            aria-label="Facebook"
-            className=" hover:text-blue-800 transition-colors"
-          >
-            <FaFacebook size={24} />
-          </a>
-        </div>
-        <a
-          href="#"
-          className="mx-auto mt-7 block w-max rounded-lg bg-red-400 px-3 py-1 font-light capitalize tracking-wider text-white hover:bg-red-500 transition-colors"
-        >
-          Talk To Me
-        </a>
       </div>
+     
     </div>
   );
 };
