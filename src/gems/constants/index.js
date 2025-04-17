@@ -29,9 +29,16 @@ export const PROJECTS = [
   {
     title: "Real Estate Website",
     image: "/myprojectves.jpg",
-    description: "A fully functional e-commerce website featuring property listings, search filters, and user authentication.",
+    description: "A fully functional real-estate website featuring property listings, search filters, and user authentication.(first project as a web designer)",
     technologies: ["HTML", "CSS", "React", "Tailwind", "Next.js"],
     link: "https://my-project-nn5i.vercel.app",
+  },
+  {
+    title: "Sitio Landing Page",
+    image: "/sitio.jpg",
+    description: "Welcome to Sitio, a modern web design platform for creating stunning, responsive websites. With intuitive tools and customizable templates, Sitio helps designers and developers build unique, professional sites effortlessly.",
+    technologies: ["HTML", "CSS", "React", "Tailwind", "Next.js"],
+    link: "https://sitioproject.vercel.app/",
   },
 ];
 

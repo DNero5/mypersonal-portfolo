@@ -57,56 +57,6 @@ const Project = () => {
           </div>
         </div>
       ))}
-
-      {/* Static Project Section - Now Matches Dynamic Layout */}
-      {/* Static Project Section - Now Matches Dynamic Layout */}
-      <div className="mb-8 flex flex-wrap lg:justify-center">
-        {/* Video Section (Replaces Image) */}
-        <div className="w-full lg:w-1/3 flex justify-center">
-          <video
-            ref={videoRef}
-            src="/landpagevid.mp4"
-            width={150}
-            height={150}
-            className="mb-6 rounded-lg shadow-lg border border-gray-700"
-            loop
-            muted
-            controls
-          />
-        </div>
-
-        {/* Text Section */}
-        <div className="w-full max-w-xl lg:w-3/4 flex flex-col text-white items-start">
-          {/* Title */}
-          <h2 className="text-lg font-semibold">Sitio LandingPage</h2>
-
-          {/* Description */}
-          <p className="text-gray-400 mt-2 max-w-lg">
-            A fully functional e-commerce website with features like product
-            listing, shopping cart, and user authentication.
-          </p>
-
-          {/* Play Video Button (Now properly aligned below `p`) */}
-          <button
-            onClick={handlePlayVideo}
-            className="text-blue-500 hover:underline mt-2"
-          >
-            Play Video
-          </button>
-
-          {/* Tech Stack */}
-          <div className="flex flex-wrap gap-2 mt-4">
-            {["HTML", "CSS", "React", "Tailwind", "Next"].map((tech) => (
-              <span
-                key={tech}
-                className="px-3 py-1 text-sm bg-gray-800 text-purple-400 rounded-lg"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
-        </div>
-      </div>
     </div>
   );
 };
